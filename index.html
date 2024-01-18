@@ -1,37 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>下位机数据格式转化</title>
+    <title>Document</title>
 </head>
-
 <body>
-    <div class="wrapper">
-        <textarea name="" id="textareaMy" cols="120" rows="45"></textarea>
- 
-    </div>
-    <script>
-        textareaMy.onfocus = () => {
-            navigator.clipboard.readText().then(res => {
-                let result = res.replace(/\s+/g, "");
-                const replaceMap = [[/\[/g,"[\n"],[/\]/g,"\n]\n"],[/{/g,"{\n"],[/}/g,"\n}\n"],[/,/g,',\n'],[/\n,\n$/,''],[/\n$/g,'']]
-                replaceMap.forEach(it=>result=result.replace(it[0],it[1]))
-                textareaMy.value = result
-                console.log(result)
-                copyTextToClipboard(result)
-            }, err => err)
-        }
-        function copyTextToClipboard(text) {
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textarea);
-        }
-    </script>
+    <h1>hhhhh</h1>
 </body>
-
 </html>
