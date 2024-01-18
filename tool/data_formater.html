@@ -13,12 +13,11 @@
     <script>
         textareaMy.onfocus = () => {
             navigator.clipboard.readText().then(res => {
-                let result = res.replace(/\s+/g, "");
-                const replaceMap = [[/\[/g, "[\n"], [/\]/g, "\n]\n"], [/{/g, "{\n"], [/}/g, "\n}\n"], [/,/g, ',\n'], [/\n,\n$/, ''], [/\n$/g, '']]
-                replaceMap.forEach(it => result = result.replace(it[0], it[1]))
-                textareaMy.value = result
-                console.log(result)
-                copyTextToClipboard(result)
+                const replaceMap = [[/\s+/g,""],[/\[/g, "[\n"], [/\]/g, "\n]\n"], [/{/g, "{\n"], [/}/g, "\n}\n"], [/,/g, ',\n'], [/\n,\n$/, ''], [/\n$/g, '']]
+                replaceMap.forEach(it => res = res.replace(it[0], it[1]))
+                textareaMy.value = res
+                console.log(res)
+                copyTextToClipboard(res)
             }, err => err)
         }
         function copyTextToClipboard(text) {

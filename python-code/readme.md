@@ -1,0 +1,1 @@
+pyinstaller -F --windowed --icon=data_formatter.ico data_formater.py
