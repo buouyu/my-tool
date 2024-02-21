@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,
+        html,
+        .wrapper {
+            height: 100%;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            font-weight: bold;
+            background: url(./assets/bg-img.jpg) no-repeat center ;
+            background-size: cover;
+        }
+
+        .wrapper div {
+            margin: 30px 0;
+        }
+        .name1,.name2{
+  /* font-size: ; */
+  color: rgba(240, 248, 255, 0.884);
+        }
+        .time1,.time2{
+            color: rgba(255, 255, 255, 0.884);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="name1">距离下班时间还有 </div>
+        <div class="time1"></div>
+        <div class="name2">距离午休时间还有 </div>
+        <div class="time2"></div>
+    </div>
+    <script>
+
+
+
+        // 设置下班的时间，假设是下午6点
+        var endTime1 = new Date();
+        endTime1.setHours(17, 30, 0); // 设置小时、分钟和秒
+        var endTime2 = new Date();
+        endTime2.setHours(11, 0, 0); // 设置小时、分钟和秒
+        var endTime3 = new Date();
+        endTime3.setHours(12, 30, 0); // 设置小时、分钟和秒
+        const time1Dom = document.getElementsByClassName('time1')[0]
+        const time2Dom = document.getElementsByClassName('time2')[0]
+        // 更新倒计时的函数
+        function updateCountdown() {
+            var currentTime = new Date();
+            var timeDiff = endTime1 - currentTime;
+
+            if (timeDiff > 0) {
+                var hours = Math.floor(timeDiff / 3600000);
+                var minutes = Math.floor((timeDiff % 3600000) / 60000);
+                var seconds = Math.floor((timeDiff % 60000) / 1000);
+                return `${hours} 小时 ${minutes} 分钟 ${seconds} 秒`
+
+                // console.log("距离下班还有：" + hours + " 小时, " + minutes + " 分钟, " + seconds + " 秒");
+            } else {
+                return "已经下班啦！"
+                // console.log("下班时间到了！");
+            }
+        }
+        function updateCountdown1() {
+            var currentTime = new Date();
+            var timeDiff = endTime2 - currentTime;
+            var timeDiff1 = endTime3 - currentTime;
+
+            if (timeDiff > 0) {
+                var hours = Math.floor(timeDiff / 3600000);
+                var minutes = Math.floor((timeDiff % 3600000) / 60000);
+                var seconds = Math.floor((timeDiff % 60000) / 1000);
+                return `${hours} 小时 ${minutes} 分钟 ${seconds} 秒`
+            } else if(timeDiff1>0) {
+                return "已经开始午休啦！"
+                // console.log("下班时间到了！");
+            }else{
+                return "已经午休完啦！"
+
+            }
+        }
+        function renderTimer1() {
+            const time1Inner = updateCountdown()
+            const time2Inner = updateCountdown1()
+            time1Dom.innerHTML = time1Inner
+            time2Dom.innerHTML = time2Inner
+        }
+        setInterval(renderTimer1, 1000);
+
+       
+
+
+    </script>
+</body>
+
+</html>
