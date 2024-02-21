@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>晨晨下班倒计时</title>
     <style>
         body,
         html,
@@ -23,18 +23,23 @@
             align-items: center;
             font-size: 50px;
             font-weight: bold;
-            background: url(./assets/bg-img.jpg) no-repeat center ;
+            background: url(./assets/bg-img.jpg) no-repeat center;
             background-size: cover;
         }
 
         .wrapper div {
+            text-align: center;
             margin: 30px 0;
         }
-        .name1,.name2{
-  /* font-size: ; */
-  color: rgba(240, 248, 255, 0.884);
+
+        .name1,
+        .name2 {
+            /* font-size: ; */
+            color: rgba(240, 248, 255, 0.884);
         }
-        .time1,.time2{
+
+        .time1,
+        .time2 {
             color: rgba(255, 255, 255, 0.884);
 
         }
@@ -88,10 +93,10 @@
                 var minutes = Math.floor((timeDiff % 3600000) / 60000);
                 var seconds = Math.floor((timeDiff % 60000) / 1000);
                 return `${hours} 小时 ${minutes} 分钟 ${seconds} 秒`
-            } else if(timeDiff1>0) {
+            } else if (timeDiff1 > 0) {
                 return "已经开始午休啦！"
                 // console.log("下班时间到了！");
-            }else{
+            } else {
                 return "已经午休完啦！"
 
             }
@@ -104,7 +109,7 @@
         }
         setInterval(renderTimer1, 1000);
 
-       
+
 
 
     </script>
